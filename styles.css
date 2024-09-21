@@ -1,0 +1,157 @@
+:root {
+    /* Original image dimensions */
+    --image-width: 700; /* Without px, to use directly in calc() */
+    --image-height: 339; /* Without px */
+
+    /* Key dimensions as percentages of the container size */
+    --key-width-percent: calc(50.6 / var(--image-width) * 100%);
+    --key-height-percent: calc(50.6 / var(--image-height) * 100%);
+
+    /* Separate positioning calculations for X and Y */
+    --base-left-percent: calc(67.9 / var(--image-width) * 100%);
+    --base-top-percent: calc(37.9 / var(--image-height) * 100%);
+    
+    /* Horizontal and vertical spacing */
+    --key-spacing-x: calc(57.3 / var(--image-width) * 100%);
+    --key-spacing-y: calc(57.3 / var(--image-height) * 100%); /* Adjust vertical spacing as needed */
+}
+
+/* Container and image styles */
+.keyboard-container {
+    position: relative;
+    width: 100%; /* Scale the container to the full width of its parent */
+    max-width: var(--image-width)px; /* Cap it at the original image size */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 auto; /* Center container */
+}
+
+.keyboard-background {
+    width: 100%; /* Make the image fill the container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure it's displayed as a block element */
+}
+
+/* Key styles */
+.key {
+    position: absolute;
+    width: var(--key-width-percent);
+    height: var(--key-height-percent);
+    border-radius: 50%;
+    background-color: rgba(0, 128, 0, 0.0); /* Semi-transparent green for visibility */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10; /* Ensure it's above the image */
+}
+
+/* QWERTY Row 1 */
+#key-Q {
+    top: var(--base-top-percent);
+    left: var(--base-left-percent);
+}
+#key-W {
+    top: var(--base-top-percent);
+    left: calc(var(--base-left-percent) + var(--key-spacing-x) * 1);
+}
+#key-E {
+    top: var(--base-top-percent);
+    left: calc(var(--base-left-percent) + var(--key-spacing-x) * 2);
+}
+#key-R {
+    top: var(--base-top-percent);
+    left: calc(var(--base-left-percent) + var(--key-spacing-x) * 3);
+}
+#key-T {
+    top: var(--base-top-percent);
+    left: calc(var(--base-left-percent) + var(--key-spacing-x) * 4);
+}
+#key-Y {
+    top: var(--base-top-percent);
+    left: calc(var(--base-left-percent) + var(--key-spacing-x) * 5);
+}
+#key-U {
+    top: var(--base-top-percent);
+    left: calc(var(--base-left-percent) + var(--key-spacing-x) * 6);
+}
+#key-I {
+    top: var(--base-top-percent);
+    left: calc(var(--base-left-percent) + var(--key-spacing-x) * 7);
+}
+#key-O {
+    top: var(--base-top-percent);
+    left: calc(var(--base-left-percent) + var(--key-spacing-x) * 8);
+}
+#key-P {
+    top: var(--base-top-percent);
+    left: calc(var(--base-left-percent) + var(--key-spacing-x) * 9);
+}
+
+/* QWERTY Row 2 */
+#key-A {
+    top: calc(var(--base-top-percent) + var(--key-spacing-y));
+    left: var(--base-left-percent);
+}
+#key-S {
+    top: calc(var(--base-top-percent) + var(--key-spacing-y));
+    left: calc(var(--base-left-percent) + var(--key-spacing-x) * 1);
+}
+#key-D {
+    top: calc(var(--base-top-percent) + var(--key-spacing-y));
+    left: calc(var(--base-left-percent) + var(--key-spacing-x) * 2);
+}
+#key-F {
+    top: calc(var(--base-top-percent) + var(--key-spacing-y));
+    left: calc(var(--base-left-percent) + var(--key-spacing-x) * 3);
+}
+#key-G {
+    top: calc(var(--base-top-percent) + var(--key-spacing-y));
+    left: calc(var(--base-left-percent) + var(--key-spacing-x) * 4);
+}
+#key-H {
+    top: calc(var(--base-top-percent) + var(--key-spacing-y));
+    left: calc(var(--base-left-percent) + var(--key-spacing-x) * 5);
+}
+#key-J {
+    top: calc(var(--base-top-percent) + var(--key-spacing-y));
+    left: calc(var(--base-left-percent) + var(--key-spacing-x) * 6);
+}
+#key-K {
+    top: calc(var(--base-top-percent) + var(--key-spacing-y));
+    left: calc(var(--base-left-percent) + var(--key-spacing-x) * 7);
+}
+#key-L {
+    top: calc(var(--base-top-percent) + var(--key-spacing-y));
+    left: calc(var(--base-left-percent) + var(--key-spacing-x) * 8);
+}
+
+/* QWERTY Row 3 */
+#key-Z {
+    top: calc(var(--base-top-percent) + var(--key-spacing-y) * 2);
+    left: calc(var(--base-left-percent) + var(--key-spacing-x) * 1);
+}
+#key-X {
+    top: calc(var(--base-top-percent) + var(--key-spacing-y) * 2);
+    left: calc(var(--base-left-percent) + var(--key-spacing-x) * 2);
+}
+#key-C {
+    top: calc(var(--base-top-percent) + var(--key-spacing-y) * 2);
+    left: calc(var(--base-left-percent) + var(--key-spacing-x) * 3);
+}
+#key-V {
+    top: calc(var(--base-top-percent) + var(--key-spacing-y) * 2);
+    left: calc(var(--base-left-percent) + var(--key-spacing-x) * 4);
+}
+#key-B {
+    top: calc(var(--base-top-percent) + var(--key-spacing-y) * 2);
+    left: calc(var(--base-left-percent) + var(--key-spacing-x) * 5);
+}
+#key-N {
+    top: calc(var(--base-top-percent) + var(--key-spacing-y) * 2);
+    left: calc(var(--base-left-percent) + var(--key-spacing-x) * 6);
+}
+#key-M {
+    top: calc(var(--base-top-percent) + var(--key-spacing-y) * 2);
+    left: calc(var(--base-left-percent) + var(--key-spacing-x) * 7);
+}
+

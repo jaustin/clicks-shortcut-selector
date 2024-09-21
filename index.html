@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Keyboard App Selector</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="keyboard-container">
+                    <img src="clicksback.png" alt="Keyboard Background" class="keyboard-background">
+                    <!-- QWERTY Keys -->
+                    <div class="key" id="key-Q"></div>
+                    <div class="key" id="key-W"></div>
+                    <div class="key" id="key-E"></div>
+                    <div class="key" id="key-R"></div>
+                    <div class="key" id="key-T"></div>
+                    <div class="key" id="key-Y"></div>
+                    <div class="key" id="key-U"></div>
+                    <div class="key" id="key-I"></div>
+                    <div class="key" id="key-O"></div>
+                    <div class="key" id="key-P"></div>
+                    <div class="key" id="key-A"></div>
+                    <div class="key" id="key-S"></div>
+                    <div class="key" id="key-D"></div>
+                    <div class="key" id="key-F"></div>
+                    <div class="key" id="key-G"></div>
+                    <div class="key" id="key-H"></div>
+                    <div class="key" id="key-J"></div>
+                    <div class="key" id="key-K"></div>
+                    <div class="key" id="key-L"></div>
+                    <div class="key" id="key-Z"></div>
+                    <div class="key" id="key-X"></div>
+                    <div class="key" id="key-C"></div>
+                    <div class="key" id="key-V"></div>
+                    <div class="key" id="key-B"></div>
+                    <div class="key" id="key-N"></div>
+                    <div class="key" id="key-M"></div>
+                </div>
+		<button id="download-button" class="btn btn-info mt-2 mx-auto d-block">Download Image</button>
+
+            </div>
+
+	    <div class="col">
+    <textarea id="app-assignments" class="form-control mb-2" rows="10" placeholder="Assignments will appear here..."></textarea>
+    <div class="d-flex flex-column">
+        <button id="update-icons-button" class="btn btn-primary mb-1">Update Icons from Text</button>
+        <button id="load-button" class="btn btn-secondary mb-1">Load Assignments</button>
+        <button id="save-button" class="btn btn-success">Save Assignments</button>
+    </div>
+</div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

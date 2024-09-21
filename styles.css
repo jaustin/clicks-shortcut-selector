@@ -155,3 +155,15 @@
     left: calc(var(--base-left-percent) + var(--key-spacing-x) * 7);
 }
 
+/* Spinner class for keys */
+.spinner {
+    border-top: 3px solid rgb(1 154 200 / 70%); /* Semi-transparent border */
+    border-radius: 50%; /* Rounded corners */
+    animation: spin 1s linear infinite; /* Infinite spin animation */
+}
+
+/* Spin keyframes */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

@@ -16,6 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
             .join('\n');
     }
 
+    function showKeySpinner(key) {
+        key.classList.add('spinner'); // Add the spin class to start the animation
+    }
+
+    // Function to hide spinner on a specific key
+    function hideKeySpinner(key) {
+        key.classList.remove('spinner'); // Remove the spin class to stop the animation
+    }
     // Call updateAssignments on page load
     updateAssignments();
 
@@ -27,7 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 updateKeysFromAssignments(text);
             const appName = prompt('Enter the app name:');
             if (appName) {
+		    showKeySpinner(key)
                 const appDetails = await fetchAppDetails(appName);
+		    hideKeySpinner(key)
                 if (appDetails) {
                     const iconUrl = appDetails.artworkUrl60; // URL of app icon
                     key.style.backgroundImage = `url(${iconUrl})`;
@@ -79,20 +89,25 @@ document.addEventListener('DOMContentLoaded', () => {
             const line = lines.find(l => l.startsWith(`${keyId}:`));
             if (line) {
                 const appName = line.split(':')[1]?.trim(); // Optional chaining to avoid error
-                key.dataset.appName = appName || ''; // Store app name in data attribute
-                assignments[keyId] = appName; // Update assignments
                 if (appName) {
-                    // Fetch the icon and set background if app name is not empty
-                    fetchAppDetails(appName).then(appDetails => {
-                        if (appDetails) {
-                            const iconUrl = appDetails.artworkUrl60;
-                            key.style.backgroundImage = `url(${iconUrl})`;
-                            key.style.backgroundSize = 'cover';
-                            key.style.backgroundClip = 'circle';
-                        } else {
-                            key.style.backgroundImage = ''; // Reset if not found
-                        }
-                    });
+		    if (key.dataset.appName != appName) {
+		        console.log(appName)
+                        key.dataset.appName = appName || ''; // Store app name in data attribute
+                        assignments[keyId] = appName; // Update assignments
+                        // Fetch the icon and set background if app name is not empty
+                        showKeySpinner(key)
+                        fetchAppDetails(appName).then(appDetails => {
+                            if (appDetails) {
+                                const iconUrl = appDetails.artworkUrl60;
+                                key.style.backgroundImage = `url(${iconUrl})`;
+                                key.style.backgroundSize = 'cover';
+                                key.style.backgroundClip = 'circle';
+                            } else {
+                                key.style.backgroundImage = ''; // Reset if not found
+                            }
+                        hideKeySpinner(key)
+                        });
+		    }
                 } else {
                     key.style.backgroundImage = ''; // Reset if empty
                 }
